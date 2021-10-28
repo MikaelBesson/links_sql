@@ -30,6 +30,7 @@
                 <label for="top">_top</label><br>
                 <label for="name">Nom :</label><br>
                 <input type="text" name="name" id="name"><br><br>
+                <a href="/index.php">Retour a l'acceuil</a>
                 <input type="submit" value="Envoyer" id="submit">
             </fieldset>
         </form>

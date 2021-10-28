@@ -14,7 +14,7 @@
 <body>
 <div id="lien">
     <a href="/index.php?ctrl=FormLink"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
-    <a href=""><i class="fas fa-user"></i></a>
+    <a href="/index.php?ctrl=FormUser"><i class="fas fa-user">Connection</i></a>
 </div>
 <?php
 foreach ($data as $link){ ?>

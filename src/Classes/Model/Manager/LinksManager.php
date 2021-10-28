@@ -5,7 +5,6 @@ namespace Mika\App\Classes\Model\Manager;
 use Mika\App\Classes\DB;
 use Mika\App\Classes\CleanInput;
 use Mika\App\Classes\Model\Entity\links;
-use Muffeen\UrlStatus\UrlStatus;
 
 class LinksManager {
 
@@ -30,7 +29,6 @@ class LinksManager {
     /**
      * return one link
      * @param int $id
-     * @return links|null
      */
     public function getLink(int $id)
     {
@@ -39,10 +37,7 @@ class LinksManager {
         $req->bindValue(":id", $id);
         $data = $req->fetch();
         if($data){
-            return $link = new links($data['id'],$data['href'],$data['title'],$data['target'],$data['name']);
-        }
-        else {
-            return null;
+            $link = new links($data['id'],$data['href'],$data['title'],$data['target'],$data['name']);
         }
     }
 
@@ -58,9 +53,6 @@ class LinksManager {
         $conn = new DB();
         $clean =new CleanInput();
 
-        $href = UrlStatus::get($href);
-        $http_status_code = $href->getStatusCode();
-        $response_header =$href->getResponseHeaders();
         $title = $clean->verifInput($title);
         $name =$clean->verifInput($name);
 
