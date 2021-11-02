@@ -33,12 +33,18 @@ class LinksManager {
     public function getLink(int $id)
     {
         $conn = new DB();
-        $req = $conn->connect()->prepare("SELECT * FROM prefix_link WHERE id = :id");
+        $req = $conn->connect()->prepare("SELECT * FROM prefix_link WHERE id = :id ");
         $req->bindValue(":id", $id);
+        $req->execute();
         $data = $req->fetch();
         if($data){
             $link = new links($data['id'],$data['href'],$data['title'],$data['target'],$data['name']);
+            return $link;
         }
+        else{
+            echo 'ok';
+        }
+        return false;
     }
 
     /**

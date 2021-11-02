@@ -16,17 +16,25 @@
     <a href="/index.php?ctrl=FormLink"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
     <a href="/index.php?ctrl=FormUser"><i class="fas fa-user">Connection</i></a>
 </div>
-<?php
-foreach ($data as $link){ ?>
-    <div id="block">
-        <div class="cases">
-            <div class="in_cases">
-                <a href="<?=$link->getHref()?>" target="<?=$link->getTarget()?>" title="<?=$link->getTitle()?>"><?=$link->getName()?></a>
+<div id="grille">
+    <?php
+    foreach ($data as $link){ ?>
+        <div id="block">
+            <div class="cases">
+                <div class="in_cases">
+                    <a id="lienTitre" href="<?=$link->getHref()?>" target="<?=$link->getTarget()?>" title="<?=$link->getTitle()?>"><?=$link->getName()?></a><br>
+                    <div class="admin">
+                        <a id="edit" href="index.php?ctrl=FormEdit&id=<?=$link->getId()?>">Editer</a>
+                        <a id="delete" href="index.php?ctrl=deleteLink&id=<?=$link->getId()?>">Suprimer</a>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
-<?php }
-?>
+    <?php }
+    ?>
+</div>
+
 
 </body>
 </html>
