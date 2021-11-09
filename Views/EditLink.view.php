@@ -11,24 +11,31 @@
 <body>
 <div class="content">
 
-    <form action="/index.php?ctrl=editLink&id<?=$data->getId()?>" method="post">
+    <form action="/index.php?ctrl=editLink&id=<?= $data->getId() ?>" method="post">
         <fieldset>
             <legend>Moddifier le lien :</legend>
             <span>Titre du lien :<?= $data->getTitle() ?> </span>
             <input id="newTitle" type="text" name="newTitle" title="Nouveaux Titre" placeholder="Nouveaux titre ici" ><br><br>
+
             <span>Href du lien :<?= $data->getHref() ?></span>
-            <input id="newHref" type="text" name="NewHref" title="Nouvelle Href" placeholder="Nouvelle Href ici"><br><br>
+            <input id="newHref" type="text" name="newHref" title="Nouvelle Href" placeholder="Nouvelle Href ici"><br><br>
+
             <span>Target du lien :<?= $data->getTarget() ?></span> >>> <span>Nouvelle Target :</span>
             <input type="radio" value="_blank" name="target" id="blank">
+
             <label for="blank">_blank</label>
             <input type="radio" value="_parent" name="target" id="parent">
+
             <label for="parent">_parent</label>
             <input type="radio" value="_self" name="target" id="self">
+
             <label for="self">_self</label>
             <input type="radio" value="_top" name="target" id="top"><br><br>
+
             <span>Nom du lien :<?= $data->getName() ?></span>
             <input id="newName" type="text" name="newName" title="Nouveaux Nom du lien" placeholder="Nouveaux nom ici"><br><br>
-            <a href="/index.php">Retour a l'acceuil</a>
+
+            <a href="/index.php?ctrl=home">Retour a l'acceuil</a>
             <input type="submit" value="Envoyer" id="submit">
         </fieldset>
     </form>

@@ -11,8 +11,7 @@ class DB {
     private string $password;
     private string $db;
 
-    /**
-     */
+
     public function __construct()
     {
         $this->server = "localhost";
@@ -21,6 +20,10 @@ class DB {
         $this->db = "links_sql";
     }
 
+    /**
+     * @return PDO|null
+     * to connect to the BDD
+     */
     public function connect(): ?PDO
     {
         try{
@@ -32,5 +35,12 @@ class DB {
             return null;
         }
         return $db;
+    }
+
+    function getdbLink () : ?PDO {
+        if(is_null($this->dbLink)) {
+            $this->dbLink = $this->connect();
+        }
+        return $this->dbLink;
     }
 }

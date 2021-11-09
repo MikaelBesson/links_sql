@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,8 +12,17 @@
 </head>
 <body>
 <div id="lien">
-    <a href="/index.php?ctrl=FormLink"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
-    <a href="/index.php?ctrl=FormUser"><i class="fas fa-user">Connection</i></a>
+    <a href="index.php?ctrl=FormLink"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
+    <a href="index.php?ctrl=mail"><i class="fas fa-envelope"> Nous contactez</i></a>
+    <?php
+    if(isset($_SESSION['user'])) {
+        echo 'Bienvenue : '.$_SESSION['user']->getPrenom(); ?>
+        <a href="index.php?ctrl=user_disconnect"><i class="fas fa-times-circle"> Deconnection</i></a><?php
+    }
+    ?>
+    <a href="index.php?ctrl=FormLoggin"><i class="fas fa-user"> Connection</i></a>
+    <a href="index.php?ctrl=FormUser"><i class="fas fa-user"> Inscription</i></a>
+
 </div>
 <div id="grille">
     <?php

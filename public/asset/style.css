@@ -80,6 +80,10 @@ fieldset label{
     color: #000000;
     margin-left: 20px;
 }
+fieldset #mail {
+    height: 21px;
+    width: 238px;
+}
 
 fieldset input {
     padding:0 30px;
@@ -87,6 +91,11 @@ fieldset input {
 }
 fieldset input:hover{
     box-shadow: 0 0 1px 1px red;
+}
+
+textarea{
+    width: 80%;
+    margin-left: 20px;
 }
 
  #submit{

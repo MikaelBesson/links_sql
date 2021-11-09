@@ -13,7 +13,7 @@
 
         <form action="/index.php?ctrl=addLink" method="post">
             <fieldset>
-                <legend>Entrez votre lien :</legend>
+                <legend>Entrez votre lien : <?= $_SESSION['user']->getPrenom() ?> </legend>
                 <label for="title">Titre du lien :</label><br>
                 <input type="text" name="title" id="title"><br>
                 <label for="href">Lien valide :</label><br>
@@ -30,7 +30,7 @@
                 <label for="top">_top</label><br>
                 <label for="name">Nom :</label><br>
                 <input type="text" name="name" id="name"><br><br>
-                <a href="/index.php">Retour a l'acceuil</a>
+                <a href="/index.php?ctrl=home">Retour a l'acceuil</a>
                 <input type="submit" value="Envoyer" id="submit">
             </fieldset>
         </form>
