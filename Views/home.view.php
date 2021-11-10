@@ -13,16 +13,6 @@
 <body>
 <div id="lien">
     <a href="/index.php?ctrl=form_link"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
-    <a href="/index.php?ctrl=mail"><i class="fas fa-envelope"> Nous contactez</i></a>
-    <?php
-    if (isset($_SESSION['user'])) {
-        echo 'Bienvenue : ' . $_SESSION['user']->getPrenom(); ?>
-        <a href="/index.php?ctrl=user_disconnect"><i class="fas fa-times-circle"> Deconnection</i></a><?php
-    }
-    ?>
-    <a href="/index.php?ctrl=form_loggin"><i class="fas fa-user"> Connection</i></a>
-    <a href="/index.php?ctrl=form_user"><i class="fas fa-user"> Inscription</i></a>
-
 </div>
 <div id="grille">
     <?php
@@ -33,18 +23,12 @@
                 <div class="in_cases">
                     <a id="lienTitre" href="<?= $link->getHref() ?>" target="<?= $link->getTarget() ?>"
                        title="<?= $link->getTitle() ?>"><?= $link->getName() ?></a><br>
-                    <div class="admin">
-                        <a id="edit" href="/index.php?ctrl=form_edit&id=<?= $link->getId() ?>">Editer</a>
-                        <a id="delete" href="/index.php?ctrl=delete_link&id=<?= $link->getId() ?>">Suprimer</a>
-                    </div>
-
                 </div>
             </div>
         </div> <?php
     }
     ?>
 </div>
-
 
 </body>
 </html>

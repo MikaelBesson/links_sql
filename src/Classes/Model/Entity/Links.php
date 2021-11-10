@@ -10,33 +10,15 @@ class links
     private string $title;
     private string $target;
     private string $name;
-    private int $user_fk;
 
 
-    public function __construct(int $id, $href, $title, $target, $name, int $user_fk)
+    public function __construct(int $id, $href, $title, $target, $name)
     {
         $this->id = $id;
         $this->href = $href;
         $this->title = $title;
         $this->target = $target;
         $this->name = $name;
-        $this->user_fk = $user_fk;
-    }
-
-    /**
-     * @return int
-     */
-    public function getUserFk(): int
-    {
-        return $this->user_fk;
-    }
-
-    /**
-     * @param int $user_fk
-     */
-    public function setUserFk(int $user_fk): void
-    {
-        $this->user_fk = $user_fk;
     }
 
     /**

@@ -33,50 +33,5 @@ class LinkController extends renderController
         }
     }
 
-
-    /**
-     * @param int $id
-     * display a form to edit link
-     */
-    public function displayEditLink(int $id)
-    {
-        $manager = new LinksManager();
-        $Link = $manager->getLink($id);
-        if ($Link !== null) {
-            $this->render('edit_link', $Link);
-        } else {
-            $errorCtrl = new ErrorController();
-            $errorCtrl->showError("le lien n'existe pas!");
-        }
-    }
-
-
-    /**
-     * @param int $id
-     * to edit a link
-     */
-    public function editLink(int $id)
-    {
-        if (isset($_POST['newHref'], $_POST['newTitle'], $_POST['target'], $_POST['newName'])) {
-            $link = new LinksManager();
-            $link->editLink($_POST['newHref'], $_POST['newTitle'], $_POST['target'], $_POST['newName'], $id);
-            (new HomeController())->displayHome();
-        } else {
-            $errorCtrl = new ErrorController();
-            $errorCtrl->showError("Tous les champs ne sont pas remplis!");
-        }
-    }
-
-
-    /**
-     * @param int $id
-     * to delete a link
-     */
-    public function deleteLink(int $id)
-    {
-        $link = new LinksManager();
-        $link->deleteLink($id);
-        (new HomeController())->displayHome();
-    }
 }
 
