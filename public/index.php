@@ -9,114 +9,111 @@ use Mika\App\Classes\Controller\UserController;
 use Mika\App\Classes\Controller\HomeController;
 
 
-
-require  '../vendor/autoload.php';
+require '../vendor/autoload.php';
 
 
 session_start();
 
-if(isset($_GET['ctrl'])) {
+if (isset($_GET['ctrl'])) {
     $errorController = new ErrorController();
 
     switch ($_GET['ctrl']) {
 
-            /**
-             * display a form view to add a link
-             */
-        case 'FormLink':
+        /**
+         * display a form view to add a link
+         */
+        case 'form_link':
             $controller = new LinkController();
             $controller->displayAddLink();
             break;
 
-            /**
-             * to add a link
-             */
-        case 'addLink':
+        /**
+         * to add a link
+         */
+        case 'add_link':
             $controller = new LinkController();
-            if(!$controller->addLink()){
+            if (!$controller->addLink()) {
                 $errorController->showError("impossible d'ajouter le lien");
             }
             break;
 
-            /**
-             * display a form view to edit a link
-             */
-        case 'FormEdit':
-                $controller = new LinkController();
-                $controller->displayEditLink($_GET['id']);
+        /**
+         * display a form view to edit a link
+         */
+        case 'form_edit':
+            $controller = new LinkController();
+            $controller->displayEditLink($_GET['id']);
             break;
 
-            /**
-             * to edit a link
-             */
-        case 'editLink':
-            if(isset($_GET['id'])){
+        /**
+         * to edit a link
+         */
+        case 'edit_link':
+            if (isset($_GET['id'])) {
                 $controller = new LinkController();
                 $controller->editLink($_GET['id']);
-            }
-            else {
+            } else {
                 $errorController->showError("impossible de modifier le lien");
-                }
+            }
             break;
 
-            /**
-             * to delete a link
-             */
-        case 'deleteLink':
-            if(isset($_GET['id'])){
+        /**
+         * to delete a link
+         */
+        case 'delete_link':
+            if (isset($_GET['id'])) {
                 $controller = new LinkController();
                 $controller->deleteLink($_GET['id']);
-            }
-            else {
+            } else {
                 $errorController->showError("impossible de modifier le lien");
             }
             break;
 
-            /**
-             * display a form view to add an user
-             */
-        case 'FormUser':
+        /**
+         * display a form view to add an user
+         */
+        case 'form_user':
             $controller = new UserController();
             $controller->displayAddUser();
             break;
 
-            /**
-             * to add an user
-             */
-        case 'addUser':
+        /**
+         * to add an user
+         */
+        case 'add_user':
             $controller = new UserController();
-            if(!$controller->addUser()){
+            if (!$controller->addUser()) {
                 $errorController->showError("impossible d'ajouter un utilisateur");
             }
             break;
 
-            /**
-             * display a form loggin
-             */
-        case 'FormLoggin':
+        /**
+         * display a form loggin
+         */
+        case 'form_loggin':
             $controller = new LogginController();
             $controller->displayFormLoggin();
             break;
 
-            /**
-             * to log a user
-             */
-        case 'Loggin':
+        /**
+         * to log a user
+         */
+        case 'loggin':
             $controller = new LogginController();
             $controller->checkLog();
             break;
 
-            /**
-             * to disconnect an user
-             */
+        /**
+         * to disconnect an user
+         */
         case 'user_disconnect':
             $controller = new UserController();
             $controller->disconnect();
             break;
 
-            /**
-             * display a form view to send a mail
-             */
+        /**
+         * display a form view to send a mail
+         */
         case 'mail':
             $controller = new MailController();
             $controller->displayMail();
@@ -125,8 +122,8 @@ if(isset($_GET['ctrl'])) {
         /**
          * to send an email
          */
-        case 'sendMail':
-            $controller =new MailController();
+        case 'send_mail':
+            $controller = new MailController();
             $controller->sendMail();
             break;
 
@@ -134,12 +131,11 @@ if(isset($_GET['ctrl'])) {
          * display a home view
          */
         case 'home':
-            $controller =new HomeController();
+            $controller = new HomeController();
             $controller->displayHome();
             break;
     }
-}
-else {
+} else {
     $controller = new LogginController();
     $controller->displayFormLoggin();
 }

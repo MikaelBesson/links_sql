@@ -10,9 +10,10 @@ class HomeController extends renderController
     /**
      * display a home view
      */
-    public function displayHome(){
+    public function displayHome()
+    {
 
-        $data=(new LinksManager)->getLinks();
-        $this->render('home',$data);
+        $data = (new LinksManager)->getLinks();
+        $this->render('home', $data);
     }
 }

@@ -6,7 +6,8 @@ use Mika\App\Classes\DB;
 use Mika\App\Classes\CleanInput;
 use Mika\App\Classes\Model\Entity\links;
 
-class LinksManager {
+class LinksManager
+{
 
 
     /**
@@ -20,8 +21,8 @@ class LinksManager {
         $req = $conn->connect()->prepare("SELECT * FROM prefix_link");
         $req->execute();
         $data = $req->fetchAll();
-        foreach ($data as $data_link){
-            $links[] = new links($data_link['id'],$data_link['href'],$data_link['title'],$data_link['target'],$data_link['name'],$data_link['user_fk']);
+        foreach ($data as $data_link) {
+            $links[] = new links($data_link['id'], $data_link['href'], $data_link['title'], $data_link['target'], $data_link['name'], $data_link['user_fk']);
         }
         return $links;
     }
@@ -37,11 +38,10 @@ class LinksManager {
         $req->bindValue(":id", $id);
         $req->execute();
         $data = $req->fetch();
-        if($data){
-            $link = new links($data['id'],$data['href'],$data['title'],$data['target'],$data['name'],$data['user_fk']);
+        if ($data) {
+            $link = new links($data['id'], $data['href'], $data['title'], $data['target'], $data['name'], $data['user_fk']);
             return $link;
-        }
-        else{
+        } else {
             echo 'ok';
         }
         return false;
@@ -57,7 +57,7 @@ class LinksManager {
     public function addLink($href, $title, $target, $name)
     {
         $conn = new DB();
-        $clean =new CleanInput();
+        $clean = new CleanInput();
 
         $title = $clean->verifInput($title);
         $name = $clean->verifInput($name);
@@ -69,7 +69,7 @@ class LinksManager {
         $req->bindValue(':title', $title);
         $req->bindValue(':target', $target);
         $req->bindValue(':name', $name);
-        $req->bindValue(':user_fk', $userId );
+        $req->bindValue(':user_fk', $userId);
         $req->execute();
     }
 
@@ -82,12 +82,13 @@ class LinksManager {
      * @param $name
      * @param $id
      */
-    public function editLink($href, $title, $target, $name, $id){
+    public function editLink($href, $title, $target, $name, $id)
+    {
         $conn = new DB();
-        $clean =new CleanInput();
+        $clean = new CleanInput();
 
         $title = $clean->verifInput($title);
-        $name =$clean->verifInput($name);
+        $name = $clean->verifInput($name);
 
         $req = $conn->connect()->prepare("UPDATE prefix_link set href=:newHref, title=:newTitle, target=:target, name=:newName WHERE id=:id");
         $req->bindValue(':newHref', $href);

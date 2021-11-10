@@ -47,6 +47,10 @@ i{
     flex: 200px 0 0;
 }
 
+img {
+    width: 100%;
+}
+
 .in_cases{
     width: 200px;
     height: 50px;

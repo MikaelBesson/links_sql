@@ -3,14 +3,16 @@
 namespace Mika\App\Classes;
 
 
-class CleanInput {
+class CleanInput
+{
     // cleaning of inputs
     /**
      * sanitizes the content of a variable
      * @param $data
      * @return string
      */
-    function verifInput($data) : string {
+    function verifInput($data): string
+    {
         //remove spaces
         $data = trim($data);
         //remove backslashes
@@ -24,14 +26,16 @@ class CleanInput {
 
 
     // check the parameters if they are empty returns false
+
     /**
      * check parameters empty return false
      * @param string ...$params
      * @return bool
      */
-    function issetPostParams(string ...$params) : bool {
-        foreach($params as $param){
-            if(!isset($_POST[$param])) {
+    function issetPostParams(string ...$params): bool
+    {
+        foreach ($params as $param) {
+            if (!isset($_POST[$param])) {
                 return false;
             }
         }

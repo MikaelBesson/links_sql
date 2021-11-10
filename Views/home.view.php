@@ -12,34 +12,36 @@
 </head>
 <body>
 <div id="lien">
-    <a href="index.php?ctrl=FormLink"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
-    <a href="index.php?ctrl=mail"><i class="fas fa-envelope"> Nous contactez</i></a>
+    <a href="/index.php?ctrl=form_link"><i class="fas fa-plus-square"> Ajouter un lien</i></a>
+    <a href="/index.php?ctrl=mail"><i class="fas fa-envelope"> Nous contactez</i></a>
     <?php
-    if(isset($_SESSION['user'])) {
-        echo 'Bienvenue : '.$_SESSION['user']->getPrenom(); ?>
-        <a href="index.php?ctrl=user_disconnect"><i class="fas fa-times-circle"> Deconnection</i></a><?php
+    if (isset($_SESSION['user'])) {
+        echo 'Bienvenue : ' . $_SESSION['user']->getPrenom(); ?>
+        <a href="/index.php?ctrl=user_disconnect"><i class="fas fa-times-circle"> Deconnection</i></a><?php
     }
     ?>
-    <a href="index.php?ctrl=FormLoggin"><i class="fas fa-user"> Connection</i></a>
-    <a href="index.php?ctrl=FormUser"><i class="fas fa-user"> Inscription</i></a>
+    <a href="/index.php?ctrl=form_loggin"><i class="fas fa-user"> Connection</i></a>
+    <a href="/index.php?ctrl=form_user"><i class="fas fa-user"> Inscription</i></a>
 
 </div>
 <div id="grille">
     <?php
-    foreach ($data as $link){ ?>
+    foreach ($data as $link) { ?>
         <div id="block">
             <div class="cases">
+                <img src="/asset/img/wip.png" alt="image work in progres" height="60%">
                 <div class="in_cases">
-                    <a id="lienTitre" href="<?=$link->getHref()?>" target="<?=$link->getTarget()?>" title="<?=$link->getTitle()?>"><?=$link->getName()?></a><br>
+                    <a id="lienTitre" href="<?= $link->getHref() ?>" target="<?= $link->getTarget() ?>"
+                       title="<?= $link->getTitle() ?>"><?= $link->getName() ?></a><br>
                     <div class="admin">
-                        <a id="edit" href="index.php?ctrl=FormEdit&id=<?=$link->getId()?>">Editer</a>
-                        <a id="delete" href="index.php?ctrl=deleteLink&id=<?=$link->getId()?>">Suprimer</a>
+                        <a id="edit" href="/index.php?ctrl=form_edit&id=<?= $link->getId() ?>">Editer</a>
+                        <a id="delete" href="/index.php?ctrl=delete_link&id=<?= $link->getId() ?>">Suprimer</a>
                     </div>
 
                 </div>
             </div>
-        </div>
-    <?php }
+        </div> <?php
+    }
     ?>
 </div>
 

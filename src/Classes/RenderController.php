@@ -9,7 +9,8 @@ class renderController
      * @param null $data
      * return a view from controller
      */
-    public function render(string $view, $data = null) {
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/../Views/'.$view.".view.php";
+    public function render(string $view, $data = null)
+    {
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/../Views/' . $view . ".view.php";
     }
 }

@@ -60,7 +60,7 @@ class UsersManager
         $req->execute();
         $data = $req->fetch();
         if ($data) {
-             return new users($data['id'], $data['nom'], $data['prenom'], $data['mail'], $data['pass']);
+            return new users($data['id'], $data['nom'], $data['prenom'], $data['mail'], $data['pass']);
         }
 
         return null;

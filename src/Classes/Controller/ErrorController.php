@@ -2,6 +2,7 @@
 
 
 namespace Mika\App\Classes\Controller;
+
 use Mika\App\Classes\RenderController;
 
 class ErrorController extends RenderController

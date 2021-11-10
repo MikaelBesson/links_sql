@@ -11,7 +11,8 @@ class MailController extends renderController
     /**
      * display a form mail to send a mail
      */
-    public function displayMail(){
+    public function displayMail()
+    {
         $this->render('mail');
     }
 
@@ -20,9 +21,12 @@ class MailController extends renderController
         $to = 'besson.mikael04@gmail.com';
         $subject = 'message from links_handler';
         $message = $_POST['message'];
-        $header = 'From: '.$_POST['name'] .' '.$_POST['first_name']."\r\n" .
+        $header = 'From: ' . $_POST['name'] . ' ' . $_POST['first_name'] . "\r\n" .
             'Reply-To :' . $_POST['mail'] . "\r\n";
 
         mail($to, $subject, $message, $header);
+        echo 'mail envoyée !!';
+
+        (new HomeController())->displayHome();
     }
 }

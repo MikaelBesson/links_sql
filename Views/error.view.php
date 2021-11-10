@@ -8,10 +8,10 @@
     <title>Erreur</title>
 </head>
 <body>
-    <div class="error-message">
+<div class="error-message">
 
-        <?= $data ?>
-    </div>
+    <?= $data ?>
+</div>
 
 </body>
 </html>

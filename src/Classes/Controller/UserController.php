@@ -11,8 +11,9 @@ class UserController extends renderController
     /**
      * display a form to add user
      */
-    public function displayAddUser(){
-        $this->render('FormUser');
+    public function displayAddUser()
+    {
+        $this->render('form_user');
     }
 
     /**
@@ -21,13 +22,12 @@ class UserController extends renderController
      */
     public function addUser(): bool
     {
-        if(isset($_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['pass'])){
+        if (isset($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['pass'])) {
             $user = new UsersManager();
-            $user->addUser($_POST['nom'],$_POST['prenom'],$_POST['mail'],password_hash($_POST['pass'],PASSWORD_BCRYPT));
+            $user->addUser($_POST['nom'], $_POST['prenom'], $_POST['mail'], password_hash($_POST['pass'], PASSWORD_BCRYPT));
             (new HomeController())->displayHome();
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

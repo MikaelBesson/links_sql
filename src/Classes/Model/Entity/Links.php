@@ -2,23 +2,25 @@
 
 namespace Mika\App\Classes\Model\Entity;
 
-class links {
+class links
+{
 
-private int $id;
-private string $href;
-private string $title;
-private string $target;
-private string $name;
-private int $user_fk;
+    private int $id;
+    private string $href;
+    private string $title;
+    private string $target;
+    private string $name;
+    private int $user_fk;
 
 
-public function __construct(int $id, $href, $title, $target, $name ,int $user_fk) {
-    $this->id = $id;
-    $this->href = $href;
-    $this->title = $title;
-    $this->target = $target;
-    $this->name = $name;
-    $this->user_fk = $user_fk;
+    public function __construct(int $id, $href, $title, $target, $name, int $user_fk)
+    {
+        $this->id = $id;
+        $this->href = $href;
+        $this->title = $title;
+        $this->target = $target;
+        $this->name = $name;
+        $this->user_fk = $user_fk;
     }
 
     /**
